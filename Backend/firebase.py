@@ -19,7 +19,7 @@ firebase={
   "client_x509_cert_url": os.getenv("CLIENT_X509_CERT_URL"),
   "universe_domain": os.getenv("UNIVERSE_DOMAIN")
 }
-cred = credentials.Certificate()
+cred = credentials.Certificate(firebase)
 firebase_admin.initialize_app(cred)
 
 def verify_token(auth_header: str):
