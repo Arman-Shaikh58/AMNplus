@@ -131,6 +131,4 @@ npm run dev
 
 ---
 
-## 💙 Credits
-
-Created by [Your Name] with ❤️ and security in mind. Project name is **AMNplus**
+The reason was their is no app i think that provide a DB for API keys
