@@ -14,7 +14,7 @@ export default function Home() {
     const fetchStats = async () => {
       try {
         const idToken = await currentUser?.getIdToken()
-        const res = await fetch("http://localhost:8000/get/stats", {
+        const res = await fetch("https://amnplus.onrender.com/get/stats", {
           headers: {
             Authorization: `Bearer ${idToken}`,
           }

@@ -19,6 +19,7 @@ import AddAPIKeys from "./components/AddAPIKeys";
 import EditAPI from "./components/EditAPI";
 import EditPassword from "./components/EditPassword";
 import { AlertProvider } from "./components/context/Alerts/Alerts";
+import ProtectedRoute from "./components/ProtectRoute";
 
 export default function App() {
   return (
@@ -40,19 +41,73 @@ export default function App() {
               </header>
               <div className="flex flex-1 flex-col pt-0">
                 <Routes>
-                  <Route path="/" element={<SignIn />}></Route>
-                  <Route path="/signup" element={<SignUp />}></Route>
-                  <Route path="/home" element={<Home />}></Route>
-                  <Route path="/passwords" element={<Passwords />}></Route>
-                  <Route path="/keys" element={<APIKeys />}></Route>
-                  <Route path="/profile/:email" element={<Profile />}></Route>
+                  <Route path="/" element={<SignIn />} />
+                  <Route path="/signup" element={<SignUp />} />
+
+                  <Route
+                    path="/home"
+                    element={
+                      <ProtectedRoute>
+                        <Home />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/passwords"
+                    element={
+                      <ProtectedRoute>
+                        <Passwords />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/keys"
+                    element={
+                      <ProtectedRoute>
+                        <APIKeys />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/profile/:email"
+                    element={
+                      <ProtectedRoute>
+                        <Profile />
+                      </ProtectedRoute>
+                    }
+                  />
                   <Route
                     path="/addpassword"
-                    element={<AddPasswordForm />}
-                  ></Route>
-                  <Route path="/addapi" element={<AddAPIKeys />}></Route>
-                  <Route path="/editpassword/:id" element={<EditPassword />} />
-                  <Route path="/editapi/:id" element={<EditAPI />} />
+                    element={
+                      <ProtectedRoute>
+                        <AddPasswordForm />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/addapi"
+                    element={
+                      <ProtectedRoute>
+                        <AddAPIKeys />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/editpassword/:id"
+                    element={
+                      <ProtectedRoute>
+                        <EditPassword />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/editapi/:id"
+                    element={
+                      <ProtectedRoute>
+                        <EditAPI />
+                      </ProtectedRoute>
+                    }
+                  />
                 </Routes>
               </div>
             </SidebarInset>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { User, Mail, Phone, MapPin, Camera, Save, Edit } from 'lucide-react'
+import { User, Mail, Camera, Save, Edit } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { useAuth } from './context/AuthContext/AuthContext'
 

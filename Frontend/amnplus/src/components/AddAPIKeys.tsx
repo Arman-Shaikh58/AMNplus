@@ -30,7 +30,7 @@ export default function AddAPIKeys() {
     const idToken=await currentUser?.getIdToken();
     const key = await deriveKeyFromUID(currentUser?.uid ??"");
     const encrypted=await encryptData(form.key,key);
-     const res=await fetch("http://localhost:8000/post/apikeys",{
+     const res=await fetch("https://amnplus.onrender.com/post/apikeys",{
         method:"POST",
         headers:{
             Authorization: `Bearer ${idToken}`

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
-import { Eye, EyeOff, Mail, Lock, User, Check } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
+import { Eye, EyeOff, Mail, Lock } from 'lucide-react'
+import { Card, CardContent,  CardHeader } from './ui/card'
 import { docreateUserWithEmailAndPassword, doSignInWithGoogle } from '@/firebase/Authentication'
 import { useAuth } from './context/AuthContext/AuthContext'
 
@@ -55,6 +55,7 @@ export default function SignUp() {
     if(!isSigningIn){
         setIsSigningIn(true);
         doSignInWithGoogle().catch(err=>{
+          err
             setIsSigningIn(false);
         })
     }

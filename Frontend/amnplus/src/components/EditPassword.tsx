@@ -25,7 +25,7 @@ export default function EditPassword() {
       const idToken = await currentUser?.getIdToken()
       const key = await deriveKeyFromUID(currentUser?.uid ?? '')
 
-      const res = await fetch(`http://localhost:8000/get/password/${id}`, {
+      const res = await fetch(`https://amnplus.onrender.com/get/password/${id}`, {
         headers: {
           Authorization: `Bearer ${idToken}`
         }
@@ -59,7 +59,7 @@ export default function EditPassword() {
     const key = await deriveKeyFromUID(currentUser?.uid ?? '')
     const { iv, ciphertext } = await encryptData(form.password, key)
 
-    await fetch('http://localhost:8000/post/edit-password', {
+    await fetch('https://amnplus.onrender.com/post/edit-password', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${idToken}`,

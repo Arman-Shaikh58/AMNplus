@@ -38,7 +38,7 @@ export default function AddPasswordForm() {
     const idToken= await currentUser?.getIdToken();
     const key= await deriveKeyFromUID(currentUser?.uid ?? "");
     const encrypted = await encryptData(form.password, key);
-    const res=await fetch("http://localhost:8000/post/passwords",{
+    const res=await fetch("https://amnplus.onrender.com/post/passwords",{
         method:"POST",
         headers:{
             Authorization: `Bearer ${idToken}`

@@ -66,6 +66,7 @@ export default function APIKeys() {
         }
       })
       .catch((error) => {
+        error
         return "inactive";
       });
   };
@@ -76,7 +77,7 @@ export default function APIKeys() {
         const idToken = await currentUser?.getIdToken();
         const ckey = await deriveKeyFromUID(currentUser?.uid ?? "");
 
-        const res = await fetch("http://localhost:8000/get/apikeys", {
+        const res = await fetch("https://amnplus.onrender.com/get/apikeys", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${idToken}`,
@@ -141,7 +142,7 @@ export default function APIKeys() {
   const ondelete = async (id: string) => {
       try {
         const idToken = await currentUser?.getIdToken();
-        const res = await fetch("http://localhost:8000/post/delete-apikey", {
+        const res = await fetch("https://amnplus.onrender.com/post/delete-apikey", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${idToken}`,

@@ -25,7 +25,7 @@ export default function EditAPI() {
       const idToken = await currentUser?.getIdToken()
       const key = await deriveKeyFromUID(currentUser?.uid ?? '')
 
-      const res = await fetch(`http://localhost:8000/get/apikey/${id}`, {
+      const res = await fetch(`https://amnplus.onrender.com/get/apikey/${id}`, {
         headers: {
           Authorization: `Bearer ${idToken}`
         }
@@ -59,7 +59,7 @@ export default function EditAPI() {
     const key = await deriveKeyFromUID(currentUser?.uid ?? '')
     const { iv, ciphertext } = await encryptData(form.key, key)
 
-    await fetch('http://localhost:8000/post/edit-apikey', {
+    await fetch('https://amnplus.onrender.com/post/edit-apikey', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${idToken}`,

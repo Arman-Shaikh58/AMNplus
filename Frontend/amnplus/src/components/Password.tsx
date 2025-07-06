@@ -60,7 +60,7 @@ export default function Passwords() {
 
         const key = await deriveKeyFromUID(currentUser?.uid ?? "");
 
-        const res = await fetch("http://localhost:8000/get/passwords", {
+        const res = await fetch("https://amnplus.onrender.com/get/passwords", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${idToken}`,
@@ -71,7 +71,7 @@ export default function Passwords() {
 
         if (data.status === 200 && Array.isArray(data.passwords)) {
           const decryptedPasswords: Password[] = await Promise.all(
-            data.passwords.map(async (p: any, i: number) => {
+            data.passwords.map(async (p: any) => {
               const decrypted = await decryptData(
                 { iv: p.iv, ciphertext: p.ciphertext },
                 key
@@ -99,7 +99,7 @@ export default function Passwords() {
   const ondelete = async (id: string) => {
       try {
         const idToken = await currentUser?.getIdToken();
-        const res = await fetch("http://localhost:8000/post/delete-password", {
+        const res = await fetch("https://amnplus.onrender.com/post/delete-password", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${idToken}`,

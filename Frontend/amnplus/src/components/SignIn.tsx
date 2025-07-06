@@ -37,6 +37,7 @@ export default function SignIn() {
     if(!isSigningIn){
         setIsSigningIn(true);
         doSignInWithGoogle().catch(err=>{
+          err
             setIsSigningIn(false);
         })
     }
