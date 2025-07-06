@@ -1,4 +1,4 @@
-# 🔐 SecureVault – Password & API Key Manager
+# 🔐 AMN+ – Password & API Key Manager
 
 A full-stack application to securely store, manage, and access **passwords** and **API keys**, built with:
 
@@ -38,7 +38,7 @@ A full-stack application to securely store, manage, and access **passwords** and
 
 ```bash
 git clone https://github.com/your-username/securevault.git
-cd securevault
+cd AMNplus
 ```
 
 ---
@@ -131,6 +131,4 @@ npm run dev
 
 ---
 
-## 💙 Credits
-
-Created by [Your Name] with ❤️ and security in mind.
+The reason was their is no app i think that provide a DB for API keys
