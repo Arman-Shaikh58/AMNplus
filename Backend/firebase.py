@@ -6,7 +6,20 @@ import os
 load_dotenv()
 
 # Initialize Firebase Admin SDK only once
-cred = credentials.Certificate(os.getenv("FIREBASE_CERT_PATH"))
+firebase={
+    "type": os.getenv("TYPE"),
+  "project_id": os.getenv("PROJECT_ID"),
+  "private_key_id": os.getenv("PRIVATE_KEY_ID"),
+  "private_key": os.getenv("PRIVATE_KEY"),
+  "client_email": os.getenv("CLIENT_EMAIL"),
+  "client_id": os.getenv("CLIENT_ID"),
+  "auth_uri": os.getenv("AUTH_URL"),
+  "token_uri": os.getenv("TOKEN_URL"),
+  "auth_provider_x509_cert_url": os.getenv("AUTH_PROVIDER_X509_CERT_URL"),
+  "client_x509_cert_url": os.getenv("CLIENT_X509_CERT_URL"),
+  "universe_domain": os.getenv("UNIVERSE_DOMAIN")
+}
+cred = credentials.Certificate()
 firebase_admin.initialize_app(cred)
 
 def verify_token(auth_header: str):
